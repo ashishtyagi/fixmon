@@ -5,9 +5,13 @@
  */
 angular.module('fixmonFilters', []).filter('valueExtractor', function() {
     return function(fixmsg, column) {
-        if(column.sourceType === 'json')
-            return fixmsg[column.path];        
-        return $($.parseXML(fixmsg['xml'])).find(column.path).text();   
+        if (column.sourceType === 'json')
+            return fixmsg[column.path];
+        return $($.parseXML(fixmsg['xml'])).find(column.path).text();
+    };
+}).filter('msgTypeLookup', function() {
+    return function(fixmsg, lookups) {
+        return lookups[''];
     };
 });
 

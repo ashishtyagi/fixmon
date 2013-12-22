@@ -11,7 +11,11 @@ class Config(models.Model):
     
     def __str__(self):
         return self.key;
-    
+
+class Lookup(models.Model):
+    tag = models.IntegerField(null=False)
+    shortName = models.CharField(max_length=128,null=False)
+    stringValue = models.CharField(max_length=128,null=False)
     
 class ColumnConfig(models.Model):
     SOURCE_TYPES = (

@@ -22,3 +22,14 @@ fixMonApp.controller('fixMonCtrl', function($scope, Restangular) {
         $scope.fixMsgs = fixMsgs.objects;
     });
 });
+
+fixMonApp.controller('columnCtrl', function($scope, Restangular) {
+    $scope.editMode = true;
+    Restangular.all('column').getList().then(function(columns) {
+        $scope.columns = columns.objects;
+    });
+    
+    Restangular.all('fixMsg').getList().then(function(fixMsgs) {
+        $scope.fixMsgs = fixMsgs.objects;
+    });
+});
